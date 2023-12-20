@@ -85,27 +85,40 @@ class LinkedList:
       
     itr.next = Node(data, itr.next)
     
+  def insert_after_value(self, data_after, data_to_insert):
+    if self.head is None:
+      raise Exception('Empty Linked..')
+    
+    itr = self.head
+    count = 0
+    while itr:
+      if itr.data == data_after:
+        self.insert_at(count+1, data_to_insert)
+        return
+      itr = itr.next
+      count += 1
     
 
 
 if __name__ == "__main__":
   ll = LinkedList()
-  ll.insert_at_bgn(5)
-  ll.insert_at_bgn(89)
-  ll.insert_at_bgn(90)
-  ll.insert_at_bgn(23)
-  ll.insert_at_bgn(12)
-  ll.insert_at_end(100)
-  ll.show_my_LinkedList()
+  # ll.insert_at_bgn(5)
+  # ll.insert_at_bgn(89)
+  # ll.insert_at_bgn(90)
+  # ll.insert_at_bgn(23)
+  # ll.insert_at_bgn(12)
+  # ll.insert_at_end(100)
+  # ll.show_my_LinkedList()
   
   ll.insert_values(["banana","mango","grapes","orange"])
   ll.show_my_LinkedList()
-  
   print("Length of Linked List: ", ll.get_length())
   
-  ll.rmv_at(0)
-  ll.show_my_LinkedList()
-  print("Length of updated Linked List: ", ll.get_length())
+  # ll.rmv_at(0)
+  # ll.show_my_LinkedList()
+  # print("Length of updated Linked List: ", ll.get_length())
   
-  ll.insert_at(4, "figs")
+  ll.insert_at(2, "figs")
+  ll.insert_after_value("mango", "apple")
+  print("Length of updated Linked List: ", ll.get_length())
   ll.show_my_LinkedList()
