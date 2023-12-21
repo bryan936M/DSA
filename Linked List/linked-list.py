@@ -97,6 +97,21 @@ class LinkedList:
         return
       itr = itr.next
       count += 1
+      
+  def remove_by_value(self, data):
+    if self.head is None:
+      return
+    
+    itr = self.head
+    count = 0
+    
+    while itr:
+      if itr.data == data:
+        self.rmv_at(count)
+      
+      itr = itr.next
+      count += 1
+    
     
 
 
@@ -121,4 +136,8 @@ if __name__ == "__main__":
   ll.insert_at(2, "figs")
   ll.insert_after_value("mango", "apple")
   print("Length of updated Linked List: ", ll.get_length())
+  ll.show_my_LinkedList()
+  
+  ll.remove_by_value("grapes")
+  
   ll.show_my_LinkedList()
