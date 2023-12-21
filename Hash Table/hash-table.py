@@ -12,11 +12,15 @@ class HashTable:
         
       return h % self.MAX
 
-    
+    def __getitem__(self, key):
+      h = self.get_hash(key)
+      
+      for element in self.arr[h]:
+        if len(element) == 2 and element[0] == key:
+          return element[1]
 
     def __setitem__(self, key, value):
       h = self.get_hash(key)
-      print(h)
       
       # if key already exists, update the vale
       for idx, element in enumerate(self.arr[h]):
@@ -29,7 +33,10 @@ class HashTable:
     
 if __name__ == '__main__':
   t = HashTable()
+  
   t['ab c'] = 123
   t['bc a'] = 321
-  print(t.arr)
+  # print(t.arr)
+  
+  print(t['ab c'])
   
