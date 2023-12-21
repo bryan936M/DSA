@@ -30,13 +30,24 @@ class HashTable:
       
       # if key does not exist, append
       self.arr[h].append((key, value))
+      
+    def __delitem__(self, key):
+      h = self.get_hash(key)
+      
+      for idx, element in enumerate(self.arr[h]):
+        if element[0] == key:
+          del self.arr[h][idx]
+
     
 if __name__ == '__main__':
   t = HashTable()
   
   t['ab c'] = 123
   t['bc a'] = 321
-  # print(t.arr)
+  print(t.arr)
   
-  print(t['ab c'])
+  # print(t['ab c'])
+  
+  del t['ab c']
+  print(t.arr)
   
