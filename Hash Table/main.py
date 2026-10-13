@@ -45,9 +45,6 @@ if __name__ == '__main__':
   t['ab c'] = 123
   t['bc a'] = 321
   print(t.arr)
-  
-  # print(t['ab c'])
-  
   del t['ab c']
   print(t.arr)
   

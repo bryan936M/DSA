@@ -6,7 +6,6 @@ class Node:
   def __str__(self):
     return str(self.data)
 
-
 class LinkedList:
   def __init__(self):
     self.head = None
@@ -111,9 +110,6 @@ class LinkedList:
       
       itr = itr.next
       count += 1
-    
-    
-
 
 if __name__ == "__main__":
   ll = LinkedList()
